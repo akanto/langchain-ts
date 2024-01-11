@@ -1,0 +1,39 @@
+{
+  "name": "langchain-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/server.js",
+    "dev": "nodemon --exec ts-node src/server.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/akanto/langchain-ts.git"
+  },
+  "keywords": [
+    "langchain",
+    "ai"
+  ],
+  "author": "Attila Kanto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akanto/langchain-ts/issues"
+  },
+  "homepage": "https://github.com/akanto/langchain-ts#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.0",
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
