@@ -3,6 +3,7 @@ import * as langchainController from '../controllers/langchainController';
 
 const router: Router = Router();
 
-router.get('/seqchain', langchainController.seqchain);
+router.get('/llmchain', langchainController.llmchain);
+router.get('/retrieval', langchainController.retrieval);
 
 export default router;
