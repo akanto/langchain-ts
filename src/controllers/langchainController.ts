@@ -6,7 +6,7 @@ import { StringOutputParser } from '@langchain/core/output_parsers';
 
 const chatModel = new ChatOpenAI({});
 
-export const test = async (req: Request, res: Response): Promise<void> => {
+export const seqchain = async (req: Request, res: Response): Promise<void> => {
     try {
         const prompt = ChatPromptTemplate.fromMessages([
             ['system', 'You are a world class technical documentation writer.'],
@@ -24,5 +24,6 @@ export const test = async (req: Request, res: Response): Promise<void> => {
         res.json({ answer: answer });
     } catch (error) {
         logger.error('Failed to load tests', error);
+        res.status(500).json({ error: error });
     }
 };

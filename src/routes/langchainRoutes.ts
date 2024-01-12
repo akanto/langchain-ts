@@ -3,6 +3,6 @@ import * as langchainController from '../controllers/langchainController';
 
 const router: Router = Router();
 
-router.get('/test', langchainController.test);
+router.get('/seqchain', langchainController.seqchain);
 
 export default router;
