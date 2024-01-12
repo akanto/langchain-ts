@@ -73,6 +73,8 @@ export const conversation = async (req: Request, res: Response): Promise<void> =
     const vectorstore = await memoryVectorStore.getVectorStore();
     const retriever = vectorstore.asRetriever();
 
+    logger.info('Create a conversation!');
+
     const historyAwarePrompt = ChatPromptTemplate.fromMessages([
       new MessagesPlaceholder('chat_history'),
       ['user', '{input}'],
@@ -87,12 +89,12 @@ export const conversation = async (req: Request, res: Response): Promise<void> =
 
     const chatHistory = [new HumanMessage('Can LangSmith help test my LLM applications?'), new AIMessage('Yes!')];
 
-    await historyAwareRetrieverChain.invoke({
+    const documents = await historyAwareRetrieverChain.invoke({
       chat_history: chatHistory,
       input: 'Tell me how!',
     });
 
-    logger.info('Chat history: %o', chatHistory);
+    logger.info('documents: %o', documents);
 
     const historyAwareRetrievalPrompt = ChatPromptTemplate.fromMessages([
       ['system', "Answer the user's questions based on the below context:\n\n{context}"],
@@ -110,12 +112,12 @@ export const conversation = async (req: Request, res: Response): Promise<void> =
       combineDocsChain: historyAwareCombineDocsChain,
     });
 
-    const result = await conversationalRetrievalChain.invoke({
+    const finalResult = await conversationalRetrievalChain.invoke({
       chat_history: [new HumanMessage('Can LangSmith help test my LLM applications?'), new AIMessage('Yes!')],
       input: 'tell me how',
     });
 
-    res.json({ answer: result.answer });
+    res.json({ answer: finalResult.answer });
   } catch (error) {
     logger.error('Failed to load tests', error);
     res.status(500).json({ error: error });
