@@ -4,6 +4,7 @@ import { Request, Response } from 'express';
 import { conversationChain } from '../services/chains/conversationChain';
 import { retrievalChain } from '../services/chains/retrievalChain';
 import { simpleChain } from '../services/chains/simpleChain';
+import { searchAgent } from '../services/agents/searchAgent';
 
 import { logger } from '../utils/logging';
 
@@ -33,6 +34,17 @@ export const retrieval = async (req: Request, res: Response): Promise<void> => {
 export const conversation = async (req: Request, res: Response): Promise<void> => {
   try {
     const answer = await conversationChain(chatModel);
+    res.json({ answer: answer });
+  } catch (error) {
+    logger.error('Failed to load tests', error);
+    res.status(500).json({ error: error });
+  }
+};
+
+export const search = async (req: Request, res: Response): Promise<void> => {
+  try {
+    //const answer = await searchAgent('what is LangSmith?');
+    const answer = await searchAgent('what is Cloudera Cloudbreak?');
     res.json({ answer: answer });
   } catch (error) {
     logger.error('Failed to load tests', error);
