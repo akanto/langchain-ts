@@ -9,11 +9,12 @@ import { createHistoryAwareRetriever } from 'langchain/chains/history_aware_retr
 import { HumanMessage, AIMessage } from '@langchain/core/messages';
 
 import { simpleChain } from '../services/chains/simpleChain';
+import { retrievalChain } from '../services/chains/retrievalChain';
 
 import { logger } from '../utils/logging';
 import memoryVectorStore from '../services/vectorstore/memoryVectorStore';
 
-const chatModel = new ChatOpenAI({});
+export const chatModel = new ChatOpenAI({});
 
 export const simple = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -28,31 +29,8 @@ export const simple = async (req: Request, res: Response): Promise<void> => {
 
 export const retrieval = async (req: Request, res: Response): Promise<void> => {
   try {
-    const vectorstore = await memoryVectorStore.getVectorStore();
-    const retriever = vectorstore.asRetriever();
-
-    const prompt = ChatPromptTemplate.fromTemplate(`Answer the following question based only on the provided context:
-    <context>
-    {context}
-    </context>
-
-    Question: {input}`);
-
-    const documentChain = await createStuffDocumentsChain({
-      llm: chatModel,
-      prompt,
-    });
-
-    const retrievalChain = await createRetrievalChain({
-      combineDocsChain: documentChain,
-      retriever,
-    });
-
-    const result = await retrievalChain.invoke({
-      input: 'what is LangSmith?',
-    });
-
-    res.json({ answer: result.answer });
+    const answer = await retrievalChain(chatModel, 'what is LangSmith?');
+    res.json({ answer: answer });
   } catch (error) {
     logger.error('Failed to load tests', error);
     res.status(500).json({ error: error });
