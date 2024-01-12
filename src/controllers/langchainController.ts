@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ChatOpenAI, OpenAIEmbeddings } from '@langchain/openai';
+import { ChatOpenAI } from '@langchain/openai';
 import { ChatPromptTemplate } from '@langchain/core/prompts';
 import { StringOutputParser } from '@langchain/core/output_parsers';
 import { createStuffDocumentsChain } from 'langchain/chains/combine_documents';
@@ -8,26 +8,17 @@ import { MessagesPlaceholder } from '@langchain/core/prompts';
 import { createHistoryAwareRetriever } from 'langchain/chains/history_aware_retriever';
 import { HumanMessage, AIMessage } from '@langchain/core/messages';
 
+import { simpleChain } from '../services/chains/simpleChain';
+
 import { logger } from '../utils/logging';
 import memoryVectorStore from '../services/vectorstore/memoryVectorStore';
 
 const chatModel = new ChatOpenAI({});
 
-export const llmchain = async (req: Request, res: Response): Promise<void> => {
+export const simple = async (req: Request, res: Response): Promise<void> => {
   try {
-    const prompt = ChatPromptTemplate.fromMessages([
-      ['system', 'You are a world class technical documentation writer.'],
-      ['user', '{input}'],
-    ]);
-
-    const outputParser = new StringOutputParser();
-
-    const chain = prompt.pipe(chatModel).pipe(outputParser);
-
-    const answer = await chain.invoke({
-      input: 'what is LangSmith?',
-    });
-
+    // This is a hallucination, because it has no information about the the question
+    const answer = await simpleChain(chatModel, 'what is LangSmith?');
     res.json({ answer: answer });
   } catch (error) {
     logger.error('Failed to load tests', error);
