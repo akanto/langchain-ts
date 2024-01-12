@@ -29,6 +29,7 @@ The application will listen on port 3003 by default, but this can be reconfigure
 1. http://localhost:3003/api/langchain/retrieval: This endpoint implements a Retrieval Augmented Generation (RAG) example. The chain behind this endpoint downloads the webpage of LangSmith and generates an answer based on that. It uses in-memory vector embeddings.
 1. http://localhost:3003/api/langchain/conversation: This endpoint preserves the conversation history and uses the same Retrieval Augmented Generation (RAG) approach as the above endpoint.
 1. http://localhost:3003/api/langchain/search: This endpoint uses Tavily search to answer the question.
+1. http://localhost:3003/api/langchain/tokenize?text=HelloWorld: This endpoint uses the tiktoken tokenizer to generate tokens from the input text. You can read more abot this here: https://platform.openai.com/tokenizer
 
 ## Contributing
 
