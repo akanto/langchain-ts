@@ -8,14 +8,16 @@ import { searchAgent } from '../services/agents/searchAgent';
 import { tiktokenEncode } from '../services/tokenizers/tokenizerService';
 
 import { logger } from '../utils/logging';
-import { a } from 'js-tiktoken/dist/core-546a5e47';
 
 export const chatModel = new ChatOpenAI({});
 
 export const tokenize = (req: Request, res: Response): void => {
   try {
     const text = req.query.text as string; // Ensure req.query.text is defined as a string
-    const answer = tiktokenEncode(text);
+    let answer: number[] = [];
+    if (text) {
+      answer = tiktokenEncode(text);
+    }
     res.json({ answer: answer });
   } catch (error: any) {
     logger.error('Failed to tokenize: %s', error);
