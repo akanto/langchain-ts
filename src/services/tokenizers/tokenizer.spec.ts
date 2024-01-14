@@ -1,8 +1,7 @@
-// import { expect } from 'chai';
+import { expect } from 'chai';
 import sinon from 'sinon';
 import tiktoken from 'js-tiktoken';
 import { tiktokenEncode } from './tokenizer';
-import { logger } from '../../utils/logging';
 
 describe('tiktokenEncode', function () {
   let encodeStub: sinon.SinonStub, logStub: sinon.SinonStub;
@@ -24,7 +23,7 @@ describe('tiktokenEncode', function () {
     const text = 'Hello, world!';
     const result = tiktokenEncode(text);
 
-    // expect(result).to.deep.equal([1, 2, 3]);
+    expect(result).to.deep.equal([1, 2, 3]);
     // expect(encodeStub.calledWith(text)).to.be.true;
     // expect(logStub.calledWith('Text tokenized: %s, tokens: %s', text, [1, 2, 3])).to.be.true;
   });
