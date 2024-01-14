@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import tiktoken from 'js-tiktoken';
 import { tiktokenEncode } from './tokenizer';
 
-describe('tiktokenEncode', function () {
+describe('tiktokenEncode with stubbing', function () {
   let encodeStub: sinon.SinonStub, logStub: sinon.SinonStub;
 
   beforeEach(function () {
@@ -24,7 +24,15 @@ describe('tiktokenEncode', function () {
     const result = tiktokenEncode(text);
 
     expect(result).to.deep.equal([1, 2, 3]);
-    // expect(encodeStub.calledWith(text)).to.be.true;
-    // expect(logStub.calledWith('Text tokenized: %s, tokens: %s', text, [1, 2, 3])).to.be.true;
+    expect(encodeStub.calledWith(text)).to.be.true;
+  });
+});
+
+describe('tiktokenEncode with stubbing', function () {
+  it('should tokenize text and log the result', function () {
+    const text = 'hello world';
+    const result = tiktokenEncode(text);
+
+    expect(result).to.deep.equal([15339, 1917]);
   });
 });
