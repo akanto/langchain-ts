@@ -28,11 +28,9 @@ describe('tiktokenEncode with stubbing', function () {
   });
 });
 
-describe('tiktokenEncode with stubbing', function () {
+describe('tiktokenEncode with calling the real tokenise', function () {
   it('should tokenize text and log the result', function () {
-    const text = 'hello world';
-    const result = tiktokenEncode(text);
-
-    expect(result).to.deep.equal([15339, 1917]);
+    expect(tiktokenEncode('hello world')).to.deep.equal([15339, 1917]);
+    expect(tiktokenEncode('Hello World!')).to.deep.equal([9906, 4435, 0]);
   });
 });
