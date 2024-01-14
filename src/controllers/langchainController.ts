@@ -5,7 +5,7 @@ import { conversationChain } from '../services/chains/conversationChain';
 import { retrievalChain } from '../services/chains/retrievalChain';
 import { simpleChain } from '../services/chains/simpleChain';
 import { searchAgent } from '../services/agents/searchAgent';
-import { tiktokenEncode } from '../services/tokenizers/tokenizerService';
+import { tiktokenEncode } from '../services/tokenizers/tokenizer';
 
 import { logger } from '../utils/logging';
 
