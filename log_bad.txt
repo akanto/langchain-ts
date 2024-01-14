@@ -1,0 +1,151 @@
+[chain/start] [1:chain:AgentExecutor] Entering Chain run with input: {
+  "input": "what is LangSmith?"
+}
+[chain/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent] Entering Chain run with input: {
+  "input": "what is LangSmith?",
+  "steps": []
+}
+[chain/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 3:chain:RunnableMap] Entering Chain run with input: {
+  "input": {
+    "input": "what is LangSmith?",
+    "steps": []
+  }
+}
+[chain/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 3:chain:RunnableMap > 4:chain:RunnableLambda] Entering Chain run with input: {
+  "input": "what is LangSmith?",
+  "steps": []
+}
+[chain/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 3:chain:RunnableMap > 4:chain:RunnableLambda] [0ms] Exiting Chain run with output: {
+  "output": []
+}
+[chain/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 3:chain:RunnableMap] [0ms] Exiting Chain run with output: {
+  "agent_scratchpad": []
+}
+[chain/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 5:prompt:ChatPromptTemplate] Entering Chain run with input: {
+  "input": "what is LangSmith?",
+  "steps": [],
+  "agent_scratchpad": []
+}
+[chain/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 5:prompt:ChatPromptTemplate] [0ms] Exiting Chain run with output: {
+  "lc": 1,
+  "type": "constructor",
+  "id": [
+    "langchain_core",
+    "prompt_values",
+    "ChatPromptValue"
+  ],
+  "kwargs": {
+    "messages": [
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "SystemMessage"
+        ],
+        "kwargs": {
+          "content": "You are a helpful assistant",
+          "additional_kwargs": {}
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "HumanMessage"
+        ],
+        "kwargs": {
+          "content": "what is LangSmith?",
+          "additional_kwargs": {}
+        }
+      }
+    ]
+  }
+}
+[llm/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 6:llm:ChatOllama] Entering LLM run with input: {
+  "messages": [
+    [
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "SystemMessage"
+        ],
+        "kwargs": {
+          "content": "You are a helpful assistant",
+          "additional_kwargs": {}
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "HumanMessage"
+        ],
+        "kwargs": {
+          "content": "what is LangSmith?",
+          "additional_kwargs": {}
+        }
+      }
+    ]
+  ]
+}
+[llm/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 6:llm:ChatOllama] [2.58s] Exiting LLM run with output: {
+  "generations": [
+    [
+      {
+        "text": " I apologize for any confusion, but I'm unable to provide an exact answer to your question without additional context. The term \"LangSmith\" is not a widely recognized term or acronym in common usage, particularly in the field of language, technology, or academia. It could potentially be a company name, a pseudonym, or an abbreviation unique to a specific context. If you can provide more information about where you encountered this term, I'd be happy to help with any questions or clarifications I can.",
+        "message": {
+          "lc": 1,
+          "type": "constructor",
+          "id": [
+            "langchain_core",
+            "messages",
+            "AIMessage"
+          ],
+          "kwargs": {
+            "content": " I apologize for any confusion, but I'm unable to provide an exact answer to your question without additional context. The term \"LangSmith\" is not a widely recognized term or acronym in common usage, particularly in the field of language, technology, or academia. It could potentially be a company name, a pseudonym, or an abbreviation unique to a specific context. If you can provide more information about where you encountered this term, I'd be happy to help with any questions or clarifications I can.",
+            "additional_kwargs": {}
+          }
+        }
+      }
+    ]
+  ]
+}
+[chain/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 7:parser:OpenAIFunctionsAgentOutputParser] Entering Chain run with input: {
+  "lc": 1,
+  "type": "constructor",
+  "id": [
+    "langchain_core",
+    "messages",
+    "AIMessage"
+  ],
+  "kwargs": {
+    "content": " I apologize for any confusion, but I'm unable to provide an exact answer to your question without additional context. The term \"LangSmith\" is not a widely recognized term or acronym in common usage, particularly in the field of language, technology, or academia. It could potentially be a company name, a pseudonym, or an abbreviation unique to a specific context. If you can provide more information about where you encountered this term, I'd be happy to help with any questions or clarifications I can.",
+    "additional_kwargs": {}
+  }
+}
+[chain/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 7:parser:OpenAIFunctionsAgentOutputParser] [1ms] Exiting Chain run with output: {
+  "returnValues": {
+    "output": " I apologize for any confusion, but I'm unable to provide an exact answer to your question without additional context. The term \"LangSmith\" is not a widely recognized term or acronym in common usage, particularly in the field of language, technology, or academia. It could potentially be a company name, a pseudonym, or an abbreviation unique to a specific context. If you can provide more information about where you encountered this term, I'd be happy to help with any questions or clarifications I can."
+  },
+  "log": " I apologize for any confusion, but I'm unable to provide an exact answer to your question without additional context. The term \"LangSmith\" is not a widely recognized term or acronym in common usage, particularly in the field of language, technology, or academia. It could potentially be a company name, a pseudonym, or an abbreviation unique to a specific context. If you can provide more information about where you encountered this term, I'd be happy to help with any questions or clarifications I can."
+}
+[chain/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent] [2.58s] Exiting Chain run with output: {
+  "returnValues": {
+    "output": " I apologize for any confusion, but I'm unable to provide an exact answer to your question without additional context. The term \"LangSmith\" is not a widely recognized term or acronym in common usage, particularly in the field of language, technology, or academia. It could potentially be a company name, a pseudonym, or an abbreviation unique to a specific context. If you can provide more information about where you encountered this term, I'd be happy to help with any questions or clarifications I can."
+  },
+  "log": " I apologize for any confusion, but I'm unable to provide an exact answer to your question without additional context. The term \"LangSmith\" is not a widely recognized term or acronym in common usage, particularly in the field of language, technology, or academia. It could potentially be a company name, a pseudonym, or an abbreviation unique to a specific context. If you can provide more information about where you encountered this term, I'd be happy to help with any questions or clarifications I can."
+}
+[chain/end] [1:chain:AgentExecutor] [2.58s] Exiting Chain run with output: {
+  "input": "what is LangSmith?",
+  "output": " I apologize for any confusion, but I'm unable to provide an exact answer to your question without additional context. The term \"LangSmith\" is not a widely recognized term or acronym in common usage, particularly in the field of language, technology, or academia. It could potentially be a company name, a pseudonym, or an abbreviation unique to a specific context. If you can provide more information about where you encountered this term, I'd be happy to help with any questions or clarifications I can."
+}
+2024-01-14T14:19:18.949Z [http] GET /api/langchain/search 200 520 - 3032.649 ms

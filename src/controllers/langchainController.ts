@@ -1,4 +1,3 @@
-import { ChatOpenAI } from '@langchain/openai';
 import { Request, Response } from 'express';
 
 import { conversationChain } from '../services/chains/conversationChain';
@@ -8,8 +7,7 @@ import { searchAgent } from '../services/agents/searchAgent';
 import { tiktokenEncode } from '../services/tokenizers/tokenizer';
 
 import { logger } from '../utils/logging';
-
-export const chatModel = new ChatOpenAI({});
+import chatModel from '../models/chatModel';
 
 export const tokenize = (req: Request, res: Response): void => {
   try {
@@ -28,7 +26,7 @@ export const tokenize = (req: Request, res: Response): void => {
 export const simple = async (req: Request, res: Response): Promise<void> => {
   try {
     // This is a hallucination, because it has no information about the the question
-    const answer = await simpleChain(chatModel, 'what is LangSmith?');
+    const answer = await simpleChain(chatModel(req.query.model as string), 'what is LangSmith?');
     res.json({ answer: answer });
   } catch (error) {
     logger.error('Failed to process simple chain', error);
@@ -38,7 +36,7 @@ export const simple = async (req: Request, res: Response): Promise<void> => {
 
 export const retrieval = async (req: Request, res: Response): Promise<void> => {
   try {
-    const answer = await retrievalChain(chatModel, 'what is LangSmith?');
+    const answer = await retrievalChain(chatModel(req.query.model as string), 'what is LangSmith?');
     res.json({ answer: answer });
   } catch (error) {
     logger.error('Failed to process retrieval chain', error);
@@ -48,7 +46,7 @@ export const retrieval = async (req: Request, res: Response): Promise<void> => {
 
 export const conversation = async (req: Request, res: Response): Promise<void> => {
   try {
-    const answer = await conversationChain(chatModel);
+    const answer = await conversationChain(chatModel(req.query.model as string));
     res.json({ answer: answer });
   } catch (error) {
     logger.error('Failed to process conversation chain', error);
@@ -58,8 +56,8 @@ export const conversation = async (req: Request, res: Response): Promise<void> =
 
 export const search = async (req: Request, res: Response): Promise<void> => {
   try {
-    //const answer = await searchAgent('what is LangSmith?');
-    const answer = await searchAgent('what is Cloudera Cloudbreak?');
+    const answer = await searchAgent(chatModel(req.query.model as string), 'what is LangSmith?');
+    //const answer = await searchAgent(chatModel, 'what is Cloudera Cloudbreak?');
     res.json({ answer: answer });
   } catch (error) {
     logger.error('Failed to process search agent', error);

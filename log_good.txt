@@ -1,0 +1,689 @@
+-----------------
+
+
+
+
+
+
+[chain/start] [1:chain:AgentExecutor] Entering Chain run with input: {
+  "input": "what is LangSmith?"
+}
+[chain/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent] Entering Chain run with input: {
+  "input": "what is LangSmith?",
+  "steps": []
+}
+[chain/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 3:chain:RunnableMap] Entering Chain run with input: {
+  "input": {
+    "input": "what is LangSmith?",
+    "steps": []
+  }
+}
+[chain/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 3:chain:RunnableMap > 4:chain:RunnableLambda] Entering Chain run with input: {
+  "input": "what is LangSmith?",
+  "steps": []
+}
+[chain/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 3:chain:RunnableMap > 4:chain:RunnableLambda] [0ms] Exiting Chain run with output: {
+  "output": []
+}
+[chain/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 3:chain:RunnableMap] [0ms] Exiting Chain run with output: {
+  "agent_scratchpad": []
+}
+[chain/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 5:prompt:ChatPromptTemplate] Entering Chain run with input: {
+  "input": "what is LangSmith?",
+  "steps": [],
+  "agent_scratchpad": []
+}
+[chain/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 5:prompt:ChatPromptTemplate] [1ms] Exiting Chain run with output: {
+  "lc": 1,
+  "type": "constructor",
+  "id": [
+    "langchain_core",
+    "prompt_values",
+    "ChatPromptValue"
+  ],
+  "kwargs": {
+    "messages": [
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "SystemMessage"
+        ],
+        "kwargs": {
+          "content": "You are a helpful assistant",
+          "additional_kwargs": {}
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "HumanMessage"
+        ],
+        "kwargs": {
+          "content": "what is LangSmith?",
+          "additional_kwargs": {}
+        }
+      }
+    ]
+  }
+}
+[llm/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 6:llm:ChatOpenAI] Entering LLM run with input: {
+  "messages": [
+    [
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "SystemMessage"
+        ],
+        "kwargs": {
+          "content": "You are a helpful assistant",
+          "additional_kwargs": {}
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "HumanMessage"
+        ],
+        "kwargs": {
+          "content": "what is LangSmith?",
+          "additional_kwargs": {}
+        }
+      }
+    ]
+  ]
+}
+[llm/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 6:llm:ChatOpenAI] [1.37s] Exiting LLM run with output: {
+  "generations": [
+    [
+      {
+        "text": "",
+        "message": {
+          "lc": 1,
+          "type": "constructor",
+          "id": [
+            "langchain_core",
+            "messages",
+            "AIMessage"
+          ],
+          "kwargs": {
+            "content": "",
+            "additional_kwargs": {
+              "function_call": {
+                "name": "tavily_search_results_json",
+                "arguments": "{\"input\":\"LangSmith\"}"
+              }
+            }
+          }
+        },
+        "generationInfo": {
+          "finish_reason": "function_call"
+        }
+      }
+    ]
+  ],
+  "llmOutput": {
+    "tokenUsage": {
+      "completionTokens": 19,
+      "promptTokens": 84,
+      "totalTokens": 103
+    }
+  }
+}
+[chain/start] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 7:parser:OpenAIFunctionsAgentOutputParser] Entering Chain run with input: {
+  "lc": 1,
+  "type": "constructor",
+  "id": [
+    "langchain_core",
+    "messages",
+    "AIMessage"
+  ],
+  "kwargs": {
+    "content": "",
+    "additional_kwargs": {
+      "function_call": {
+        "name": "tavily_search_results_json",
+        "arguments": "{\"input\":\"LangSmith\"}"
+      }
+    }
+  }
+}
+[chain/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent > 7:parser:OpenAIFunctionsAgentOutputParser] [0ms] Exiting Chain run with output: {
+  "tool": "tavily_search_results_json",
+  "toolInput": {
+    "input": "LangSmith"
+  },
+  "log": "Invoking \"tavily_search_results_json\" with {\"input\":\"LangSmith\"}\n",
+  "messageLog": [
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "",
+        "additional_kwargs": {
+          "function_call": {
+            "name": "tavily_search_results_json",
+            "arguments": "{\"input\":\"LangSmith\"}"
+          }
+        }
+      }
+    }
+  ]
+}
+[chain/end] [1:chain:AgentExecutor > 2:chain:RunnableAgent] [1.38s] Exiting Chain run with output: {
+  "tool": "tavily_search_results_json",
+  "toolInput": {
+    "input": "LangSmith"
+  },
+  "log": "Invoking \"tavily_search_results_json\" with {\"input\":\"LangSmith\"}\n",
+  "messageLog": [
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "",
+        "additional_kwargs": {
+          "function_call": {
+            "name": "tavily_search_results_json",
+            "arguments": "{\"input\":\"LangSmith\"}"
+          }
+        }
+      }
+    }
+  ]
+}
+[agent/action] [1:chain:AgentExecutor] Agent selected action: {
+  "tool": "tavily_search_results_json",
+  "toolInput": {
+    "input": "LangSmith"
+  },
+  "log": "Invoking \"tavily_search_results_json\" with {\"input\":\"LangSmith\"}\n",
+  "messageLog": [
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "",
+        "additional_kwargs": {
+          "function_call": {
+            "name": "tavily_search_results_json",
+            "arguments": "{\"input\":\"LangSmith\"}"
+          }
+        }
+      }
+    }
+  ]
+}
+[tool/start] [1:chain:AgentExecutor > 8:tool:TavilySearchResults] Entering Tool run with input: "LangSmith"
+[tool/end] [1:chain:AgentExecutor > 8:tool:TavilySearchResults] [1.05s] Exiting Tool run with output: "[{"title":"LangSmith","url":"https://www.langchain.com/langsmith","content":"BETA Sign Up\nContact Sales\nProducts and use-cases\nLangChain\nLangSmith\nRetrieval\nAgents\nInspiration\nCode\nGitHub\nLangChain Hub\nPython Docs\nJS/TS Docs\nSocial\nTwitter\nDiscord\nBlog\nLinkedIn\nYouTube\nTerms of Service\nSign up for our newsletter\nProducts and use-cases\nLangChain\nLangSmith\nRetrieval\nAgents\nInspiration\nCode\nGitHub\nLangChain Hub\nPython Docs\nJS/TS Docs\nSocial\nTwitter\nDiscord\nBlog\nLinkedIn\nYouTube\nTerms of Service\nSign up for our newsletter\nProducts and use-cases\nLangChain\nLangSmith\nRetrieval\nAgents\nInspiration\nCode\nGitHub\nLangChain Hub\nPython Docs\nJS/TS Docs\nSocial\nTwitter\nDiscord\nBlog\nLinkedIn\nYouTube\nTerms of Service\nSign up for our newsletter 🦜🔗 LangChain\nLangSmith\nLangServe\nAgents\nRetrieval\nEvaluation\nBlog\nDocs\n🦜🔗 LangChain\nBuild and deploy LLM apps with confidence\nAn all-in-one developer platform for every step of the application lifecycle.\n Prompt playground\nCross-team collaboration\nCatalog of ranging models & tasks\nProven prompting strategies\nExplore LangChain Hub\nTurn the magic of LLM applications into enterprise-ready products\nNative collaboration\nBring your team together in LangSmith to craft prompts, debug, and capture feedback.\n Application-level usage stats\nFeedback collection\nFilter traces\nCost measurement\nPerformance comparison\nGo To Docs\nManage Prompts\nPrompts power your team's chains and agents, and LangSmith allows you to refine, test, and version them in one place. Dataset curation\nEvaluate chain performance\nAI-assisted evaluation\nEasy benchmarking\nGo To Docs\nMonitor\nGiven the stochastic nature of LLMs, it can be hard to answer the simple question: “what’s happening with my application?”","score":0.9673,"raw_content":null},{"title":"LangSmith Walkthrough | ️ Langchain","url":"https://python.langchain.com/docs/langsmith/walkthrough","content":"This will:\nThe results will be visible in the LangSmith app.\nReview the test results\nYou can review the test results tracing UI below by clicking the URL in the output above or navigating to the \"Testing & Datasets\" page in LangSmith\n\"agent-qa-{unique_id}\" dataset.\n Below, we will create some pre-implemented run evaluators that do the following:\nFor a longer discussion of how to select an appropriate evaluator for your use case and how to create your own\ncustom evaluators, please refer to the LangSmith documentation.\n For more information on datasets, including how to create them from CSVs or other files or how to create them in the platform, please refer to the LangSmith documentation.\n Create the langsmith client to interact with the API\nCreate a LangChain component and log runs to the platform. Create a LangSmith dataset\nBelow, we use the LangSmith client to create a dataset from the input questions from above and a list labels.","score":0.94139,"raw_content":null},{"title":"LangSmith | ️ Langchain","url":"https://python.langchain.com/docs/langsmith/","content":"LangSmith. LangSmith helps you trace and evaluate your language model applications and intelligent agents to help you move from prototype to production.. Check out the interactive walkthrough to get started.. For more information, please refer to the LangSmith documentation.. For tutorials and other end-to-end examples demonstrating ways to integrate LangSmith in your workflow, check out the ...","score":0.91798,"raw_content":null},{"title":"LangSmith Overview and User Guide | ️ ️ LangSmith","url":"https://docs.smith.langchain.com/overview","content":"We often use this for a couple of reasons:\nTo assess subjective qualities that automatic evaluators struggle with, like creativity or humor\nTo sample and validate a subset of runs that were auto-evaluated, ensuring the automatic metrics are still reliable and capturing the right information\nAll the annotations made using the queue are assigned as \"feedback\" to the source runs, so you can easily filter and analyze them later.\n This feature is available at every step of a nested chain, enabling you to add examples for an end-to-end chain, an intermediary chain (such as a LLM Chain), or simply the LLM or Chat Model.\n The LangSmith client makes it easy to pull down a dataset and then run a chain over them, logging the results to a new project associated with the dataset. LangChain simplifies the initial setup, but there is still work needed to bring the performance of prompts, chains and agents up the level where they are reliable enough to be used in production.\n You can also quickly edit examples and add them to datasets to expand the surface area of your evaluation sets or to fine-tune a model for improved quality or reduced costs.\n","score":0.90454,"raw_content":null},{"title":"LangSmith | ️ ️ LangSmith","url":"https://docs.smith.langchain.com/","content":"If you already use LangChain, you can connect to LangSmith in a few steps:\nFor environments where process.env is not defined, initialize by explicitly passing keys:\nIf you don't want to use LangChain in your LLM application, you can get started with LangSmith in just a few steps:\nCongratulations! It lets you debug, test, evaluate, and monitor chains and intelligent agents built on any LLM framework and seamlessly integrates with LangChain, the go-to open source framework for building with LLMs.\n Quick Start\nIf following along with code is more your thing, we've set up a Jupyter notebook at this link to help you get started with LangSmith.\n LangChain JS Docs for the TypeScript LangChain library\nDiscord: Join us on our Discord to discuss all things LangChain!\n Next Steps\nRead the LangSmith Overview to learn more about what LangSmith has to offer.\n","score":0.90136,"raw_content":null}]"
+[chain/start] [1:chain:AgentExecutor > 9:chain:RunnableAgent] Entering Chain run with input: {
+  "input": "what is LangSmith?",
+  "steps": [
+    {
+      "action": {
+        "tool": "tavily_search_results_json",
+        "toolInput": {
+          "input": "LangSmith"
+        },
+        "log": "Invoking \"tavily_search_results_json\" with {\"input\":\"LangSmith\"}\n",
+        "messageLog": [
+          {
+            "lc": 1,
+            "type": "constructor",
+            "id": [
+              "langchain_core",
+              "messages",
+              "AIMessage"
+            ],
+            "kwargs": {
+              "content": "",
+              "additional_kwargs": {
+                "function_call": {
+                  "name": "tavily_search_results_json",
+                  "arguments": "{\"input\":\"LangSmith\"}"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "observation": "[{\"title\":\"LangSmith\",\"url\":\"https://www.langchain.com/langsmith\",\"content\":\"BETA Sign Up\\nContact Sales\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter 🦜🔗 LangChain\\nLangSmith\\nLangServe\\nAgents\\nRetrieval\\nEvaluation\\nBlog\\nDocs\\n🦜🔗 LangChain\\nBuild and deploy LLM apps with confidence\\nAn all-in-one developer platform for every step of the application lifecycle.\\n Prompt playground\\nCross-team collaboration\\nCatalog of ranging models & tasks\\nProven prompting strategies\\nExplore LangChain Hub\\nTurn the magic of LLM applications into enterprise-ready products\\nNative collaboration\\nBring your team together in LangSmith to craft prompts, debug, and capture feedback.\\n Application-level usage stats\\nFeedback collection\\nFilter traces\\nCost measurement\\nPerformance comparison\\nGo To Docs\\nManage Prompts\\nPrompts power your team's chains and agents, and LangSmith allows you to refine, test, and version them in one place. Dataset curation\\nEvaluate chain performance\\nAI-assisted evaluation\\nEasy benchmarking\\nGo To Docs\\nMonitor\\nGiven the stochastic nature of LLMs, it can be hard to answer the simple question: “what’s happening with my application?”\",\"score\":0.9673,\"raw_content\":null},{\"title\":\"LangSmith Walkthrough | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/walkthrough\",\"content\":\"This will:\\nThe results will be visible in the LangSmith app.\\nReview the test results\\nYou can review the test results tracing UI below by clicking the URL in the output above or navigating to the \\\"Testing & Datasets\\\" page in LangSmith\\n\\\"agent-qa-{unique_id}\\\" dataset.\\n Below, we will create some pre-implemented run evaluators that do the following:\\nFor a longer discussion of how to select an appropriate evaluator for your use case and how to create your own\\ncustom evaluators, please refer to the LangSmith documentation.\\n For more information on datasets, including how to create them from CSVs or other files or how to create them in the platform, please refer to the LangSmith documentation.\\n Create the langsmith client to interact with the API\\nCreate a LangChain component and log runs to the platform. Create a LangSmith dataset\\nBelow, we use the LangSmith client to create a dataset from the input questions from above and a list labels.\",\"score\":0.94139,\"raw_content\":null},{\"title\":\"LangSmith | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/\",\"content\":\"LangSmith. LangSmith helps you trace and evaluate your language model applications and intelligent agents to help you move from prototype to production.. Check out the interactive walkthrough to get started.. For more information, please refer to the LangSmith documentation.. For tutorials and other end-to-end examples demonstrating ways to integrate LangSmith in your workflow, check out the ...\",\"score\":0.91798,\"raw_content\":null},{\"title\":\"LangSmith Overview and User Guide | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/overview\",\"content\":\"We often use this for a couple of reasons:\\nTo assess subjective qualities that automatic evaluators struggle with, like creativity or humor\\nTo sample and validate a subset of runs that were auto-evaluated, ensuring the automatic metrics are still reliable and capturing the right information\\nAll the annotations made using the queue are assigned as \\\"feedback\\\" to the source runs, so you can easily filter and analyze them later.\\n This feature is available at every step of a nested chain, enabling you to add examples for an end-to-end chain, an intermediary chain (such as a LLM Chain), or simply the LLM or Chat Model.\\n The LangSmith client makes it easy to pull down a dataset and then run a chain over them, logging the results to a new project associated with the dataset. LangChain simplifies the initial setup, but there is still work needed to bring the performance of prompts, chains and agents up the level where they are reliable enough to be used in production.\\n You can also quickly edit examples and add them to datasets to expand the surface area of your evaluation sets or to fine-tune a model for improved quality or reduced costs.\\n\",\"score\":0.90454,\"raw_content\":null},{\"title\":\"LangSmith | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/\",\"content\":\"If you already use LangChain, you can connect to LangSmith in a few steps:\\nFor environments where process.env is not defined, initialize by explicitly passing keys:\\nIf you don't want to use LangChain in your LLM application, you can get started with LangSmith in just a few steps:\\nCongratulations! It lets you debug, test, evaluate, and monitor chains and intelligent agents built on any LLM framework and seamlessly integrates with LangChain, the go-to open source framework for building with LLMs.\\n Quick Start\\nIf following along with code is more your thing, we've set up a Jupyter notebook at this link to help you get started with LangSmith.\\n LangChain JS Docs for the TypeScript LangChain library\\nDiscord: Join us on our Discord to discuss all things LangChain!\\n Next Steps\\nRead the LangSmith Overview to learn more about what LangSmith has to offer.\\n\",\"score\":0.90136,\"raw_content\":null}]"
+    }
+  ]
+}
+[chain/start] [1:chain:AgentExecutor > 9:chain:RunnableAgent > 10:chain:RunnableMap] Entering Chain run with input: {
+  "input": {
+    "input": "what is LangSmith?",
+    "steps": [
+      {
+        "action": {
+          "tool": "tavily_search_results_json",
+          "toolInput": {
+            "input": "LangSmith"
+          },
+          "log": "Invoking \"tavily_search_results_json\" with {\"input\":\"LangSmith\"}\n",
+          "messageLog": [
+            {
+              "lc": 1,
+              "type": "constructor",
+              "id": [
+                "langchain_core",
+                "messages",
+                "AIMessage"
+              ],
+              "kwargs": {
+                "content": "",
+                "additional_kwargs": {
+                  "function_call": {
+                    "name": "tavily_search_results_json",
+                    "arguments": "{\"input\":\"LangSmith\"}"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "observation": "[{\"title\":\"LangSmith\",\"url\":\"https://www.langchain.com/langsmith\",\"content\":\"BETA Sign Up\\nContact Sales\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter 🦜🔗 LangChain\\nLangSmith\\nLangServe\\nAgents\\nRetrieval\\nEvaluation\\nBlog\\nDocs\\n🦜🔗 LangChain\\nBuild and deploy LLM apps with confidence\\nAn all-in-one developer platform for every step of the application lifecycle.\\n Prompt playground\\nCross-team collaboration\\nCatalog of ranging models & tasks\\nProven prompting strategies\\nExplore LangChain Hub\\nTurn the magic of LLM applications into enterprise-ready products\\nNative collaboration\\nBring your team together in LangSmith to craft prompts, debug, and capture feedback.\\n Application-level usage stats\\nFeedback collection\\nFilter traces\\nCost measurement\\nPerformance comparison\\nGo To Docs\\nManage Prompts\\nPrompts power your team's chains and agents, and LangSmith allows you to refine, test, and version them in one place. Dataset curation\\nEvaluate chain performance\\nAI-assisted evaluation\\nEasy benchmarking\\nGo To Docs\\nMonitor\\nGiven the stochastic nature of LLMs, it can be hard to answer the simple question: “what’s happening with my application?”\",\"score\":0.9673,\"raw_content\":null},{\"title\":\"LangSmith Walkthrough | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/walkthrough\",\"content\":\"This will:\\nThe results will be visible in the LangSmith app.\\nReview the test results\\nYou can review the test results tracing UI below by clicking the URL in the output above or navigating to the \\\"Testing & Datasets\\\" page in LangSmith\\n\\\"agent-qa-{unique_id}\\\" dataset.\\n Below, we will create some pre-implemented run evaluators that do the following:\\nFor a longer discussion of how to select an appropriate evaluator for your use case and how to create your own\\ncustom evaluators, please refer to the LangSmith documentation.\\n For more information on datasets, including how to create them from CSVs or other files or how to create them in the platform, please refer to the LangSmith documentation.\\n Create the langsmith client to interact with the API\\nCreate a LangChain component and log runs to the platform. Create a LangSmith dataset\\nBelow, we use the LangSmith client to create a dataset from the input questions from above and a list labels.\",\"score\":0.94139,\"raw_content\":null},{\"title\":\"LangSmith | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/\",\"content\":\"LangSmith. LangSmith helps you trace and evaluate your language model applications and intelligent agents to help you move from prototype to production.. Check out the interactive walkthrough to get started.. For more information, please refer to the LangSmith documentation.. For tutorials and other end-to-end examples demonstrating ways to integrate LangSmith in your workflow, check out the ...\",\"score\":0.91798,\"raw_content\":null},{\"title\":\"LangSmith Overview and User Guide | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/overview\",\"content\":\"We often use this for a couple of reasons:\\nTo assess subjective qualities that automatic evaluators struggle with, like creativity or humor\\nTo sample and validate a subset of runs that were auto-evaluated, ensuring the automatic metrics are still reliable and capturing the right information\\nAll the annotations made using the queue are assigned as \\\"feedback\\\" to the source runs, so you can easily filter and analyze them later.\\n This feature is available at every step of a nested chain, enabling you to add examples for an end-to-end chain, an intermediary chain (such as a LLM Chain), or simply the LLM or Chat Model.\\n The LangSmith client makes it easy to pull down a dataset and then run a chain over them, logging the results to a new project associated with the dataset. LangChain simplifies the initial setup, but there is still work needed to bring the performance of prompts, chains and agents up the level where they are reliable enough to be used in production.\\n You can also quickly edit examples and add them to datasets to expand the surface area of your evaluation sets or to fine-tune a model for improved quality or reduced costs.\\n\",\"score\":0.90454,\"raw_content\":null},{\"title\":\"LangSmith | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/\",\"content\":\"If you already use LangChain, you can connect to LangSmith in a few steps:\\nFor environments where process.env is not defined, initialize by explicitly passing keys:\\nIf you don't want to use LangChain in your LLM application, you can get started with LangSmith in just a few steps:\\nCongratulations! It lets you debug, test, evaluate, and monitor chains and intelligent agents built on any LLM framework and seamlessly integrates with LangChain, the go-to open source framework for building with LLMs.\\n Quick Start\\nIf following along with code is more your thing, we've set up a Jupyter notebook at this link to help you get started with LangSmith.\\n LangChain JS Docs for the TypeScript LangChain library\\nDiscord: Join us on our Discord to discuss all things LangChain!\\n Next Steps\\nRead the LangSmith Overview to learn more about what LangSmith has to offer.\\n\",\"score\":0.90136,\"raw_content\":null}]"
+      }
+    ]
+  }
+}
+[chain/start] [1:chain:AgentExecutor > 9:chain:RunnableAgent > 10:chain:RunnableMap > 11:chain:RunnableLambda] Entering Chain run with input: {
+  "input": "what is LangSmith?",
+  "steps": [
+    {
+      "action": {
+        "tool": "tavily_search_results_json",
+        "toolInput": {
+          "input": "LangSmith"
+        },
+        "log": "Invoking \"tavily_search_results_json\" with {\"input\":\"LangSmith\"}\n",
+        "messageLog": [
+          {
+            "lc": 1,
+            "type": "constructor",
+            "id": [
+              "langchain_core",
+              "messages",
+              "AIMessage"
+            ],
+            "kwargs": {
+              "content": "",
+              "additional_kwargs": {
+                "function_call": {
+                  "name": "tavily_search_results_json",
+                  "arguments": "{\"input\":\"LangSmith\"}"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "observation": "[{\"title\":\"LangSmith\",\"url\":\"https://www.langchain.com/langsmith\",\"content\":\"BETA Sign Up\\nContact Sales\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter 🦜🔗 LangChain\\nLangSmith\\nLangServe\\nAgents\\nRetrieval\\nEvaluation\\nBlog\\nDocs\\n🦜🔗 LangChain\\nBuild and deploy LLM apps with confidence\\nAn all-in-one developer platform for every step of the application lifecycle.\\n Prompt playground\\nCross-team collaboration\\nCatalog of ranging models & tasks\\nProven prompting strategies\\nExplore LangChain Hub\\nTurn the magic of LLM applications into enterprise-ready products\\nNative collaboration\\nBring your team together in LangSmith to craft prompts, debug, and capture feedback.\\n Application-level usage stats\\nFeedback collection\\nFilter traces\\nCost measurement\\nPerformance comparison\\nGo To Docs\\nManage Prompts\\nPrompts power your team's chains and agents, and LangSmith allows you to refine, test, and version them in one place. Dataset curation\\nEvaluate chain performance\\nAI-assisted evaluation\\nEasy benchmarking\\nGo To Docs\\nMonitor\\nGiven the stochastic nature of LLMs, it can be hard to answer the simple question: “what’s happening with my application?”\",\"score\":0.9673,\"raw_content\":null},{\"title\":\"LangSmith Walkthrough | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/walkthrough\",\"content\":\"This will:\\nThe results will be visible in the LangSmith app.\\nReview the test results\\nYou can review the test results tracing UI below by clicking the URL in the output above or navigating to the \\\"Testing & Datasets\\\" page in LangSmith\\n\\\"agent-qa-{unique_id}\\\" dataset.\\n Below, we will create some pre-implemented run evaluators that do the following:\\nFor a longer discussion of how to select an appropriate evaluator for your use case and how to create your own\\ncustom evaluators, please refer to the LangSmith documentation.\\n For more information on datasets, including how to create them from CSVs or other files or how to create them in the platform, please refer to the LangSmith documentation.\\n Create the langsmith client to interact with the API\\nCreate a LangChain component and log runs to the platform. Create a LangSmith dataset\\nBelow, we use the LangSmith client to create a dataset from the input questions from above and a list labels.\",\"score\":0.94139,\"raw_content\":null},{\"title\":\"LangSmith | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/\",\"content\":\"LangSmith. LangSmith helps you trace and evaluate your language model applications and intelligent agents to help you move from prototype to production.. Check out the interactive walkthrough to get started.. For more information, please refer to the LangSmith documentation.. For tutorials and other end-to-end examples demonstrating ways to integrate LangSmith in your workflow, check out the ...\",\"score\":0.91798,\"raw_content\":null},{\"title\":\"LangSmith Overview and User Guide | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/overview\",\"content\":\"We often use this for a couple of reasons:\\nTo assess subjective qualities that automatic evaluators struggle with, like creativity or humor\\nTo sample and validate a subset of runs that were auto-evaluated, ensuring the automatic metrics are still reliable and capturing the right information\\nAll the annotations made using the queue are assigned as \\\"feedback\\\" to the source runs, so you can easily filter and analyze them later.\\n This feature is available at every step of a nested chain, enabling you to add examples for an end-to-end chain, an intermediary chain (such as a LLM Chain), or simply the LLM or Chat Model.\\n The LangSmith client makes it easy to pull down a dataset and then run a chain over them, logging the results to a new project associated with the dataset. LangChain simplifies the initial setup, but there is still work needed to bring the performance of prompts, chains and agents up the level where they are reliable enough to be used in production.\\n You can also quickly edit examples and add them to datasets to expand the surface area of your evaluation sets or to fine-tune a model for improved quality or reduced costs.\\n\",\"score\":0.90454,\"raw_content\":null},{\"title\":\"LangSmith | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/\",\"content\":\"If you already use LangChain, you can connect to LangSmith in a few steps:\\nFor environments where process.env is not defined, initialize by explicitly passing keys:\\nIf you don't want to use LangChain in your LLM application, you can get started with LangSmith in just a few steps:\\nCongratulations! It lets you debug, test, evaluate, and monitor chains and intelligent agents built on any LLM framework and seamlessly integrates with LangChain, the go-to open source framework for building with LLMs.\\n Quick Start\\nIf following along with code is more your thing, we've set up a Jupyter notebook at this link to help you get started with LangSmith.\\n LangChain JS Docs for the TypeScript LangChain library\\nDiscord: Join us on our Discord to discuss all things LangChain!\\n Next Steps\\nRead the LangSmith Overview to learn more about what LangSmith has to offer.\\n\",\"score\":0.90136,\"raw_content\":null}]"
+    }
+  ]
+}
+[chain/end] [1:chain:AgentExecutor > 9:chain:RunnableAgent > 10:chain:RunnableMap > 11:chain:RunnableLambda] [3ms] Exiting Chain run with output: {
+  "output": [
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "",
+        "additional_kwargs": {
+          "function_call": {
+            "name": "tavily_search_results_json",
+            "arguments": "{\"input\":\"LangSmith\"}"
+          }
+        }
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "FunctionMessage"
+      ],
+      "kwargs": {
+        "content": "[{\"title\":\"LangSmith\",\"url\":\"https://www.langchain.com/langsmith\",\"content\":\"BETA Sign Up\\nContact Sales\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter 🦜🔗 LangChain\\nLangSmith\\nLangServe\\nAgents\\nRetrieval\\nEvaluation\\nBlog\\nDocs\\n🦜🔗 LangChain\\nBuild and deploy LLM apps with confidence\\nAn all-in-one developer platform for every step of the application lifecycle.\\n Prompt playground\\nCross-team collaboration\\nCatalog of ranging models & tasks\\nProven prompting strategies\\nExplore LangChain Hub\\nTurn the magic of LLM applications into enterprise-ready products\\nNative collaboration\\nBring your team together in LangSmith to craft prompts, debug, and capture feedback.\\n Application-level usage stats\\nFeedback collection\\nFilter traces\\nCost measurement\\nPerformance comparison\\nGo To Docs\\nManage Prompts\\nPrompts power your team's chains and agents, and LangSmith allows you to refine, test, and version them in one place. Dataset curation\\nEvaluate chain performance\\nAI-assisted evaluation\\nEasy benchmarking\\nGo To Docs\\nMonitor\\nGiven the stochastic nature of LLMs, it can be hard to answer the simple question: “what’s happening with my application?”\",\"score\":0.9673,\"raw_content\":null},{\"title\":\"LangSmith Walkthrough | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/walkthrough\",\"content\":\"This will:\\nThe results will be visible in the LangSmith app.\\nReview the test results\\nYou can review the test results tracing UI below by clicking the URL in the output above or navigating to the \\\"Testing & Datasets\\\" page in LangSmith\\n\\\"agent-qa-{unique_id}\\\" dataset.\\n Below, we will create some pre-implemented run evaluators that do the following:\\nFor a longer discussion of how to select an appropriate evaluator for your use case and how to create your own\\ncustom evaluators, please refer to the LangSmith documentation.\\n For more information on datasets, including how to create them from CSVs or other files or how to create them in the platform, please refer to the LangSmith documentation.\\n Create the langsmith client to interact with the API\\nCreate a LangChain component and log runs to the platform. Create a LangSmith dataset\\nBelow, we use the LangSmith client to create a dataset from the input questions from above and a list labels.\",\"score\":0.94139,\"raw_content\":null},{\"title\":\"LangSmith | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/\",\"content\":\"LangSmith. LangSmith helps you trace and evaluate your language model applications and intelligent agents to help you move from prototype to production.. Check out the interactive walkthrough to get started.. For more information, please refer to the LangSmith documentation.. For tutorials and other end-to-end examples demonstrating ways to integrate LangSmith in your workflow, check out the ...\",\"score\":0.91798,\"raw_content\":null},{\"title\":\"LangSmith Overview and User Guide | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/overview\",\"content\":\"We often use this for a couple of reasons:\\nTo assess subjective qualities that automatic evaluators struggle with, like creativity or humor\\nTo sample and validate a subset of runs that were auto-evaluated, ensuring the automatic metrics are still reliable and capturing the right information\\nAll the annotations made using the queue are assigned as \\\"feedback\\\" to the source runs, so you can easily filter and analyze them later.\\n This feature is available at every step of a nested chain, enabling you to add examples for an end-to-end chain, an intermediary chain (such as a LLM Chain), or simply the LLM or Chat Model.\\n The LangSmith client makes it easy to pull down a dataset and then run a chain over them, logging the results to a new project associated with the dataset. LangChain simplifies the initial setup, but there is still work needed to bring the performance of prompts, chains and agents up the level where they are reliable enough to be used in production.\\n You can also quickly edit examples and add them to datasets to expand the surface area of your evaluation sets or to fine-tune a model for improved quality or reduced costs.\\n\",\"score\":0.90454,\"raw_content\":null},{\"title\":\"LangSmith | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/\",\"content\":\"If you already use LangChain, you can connect to LangSmith in a few steps:\\nFor environments where process.env is not defined, initialize by explicitly passing keys:\\nIf you don't want to use LangChain in your LLM application, you can get started with LangSmith in just a few steps:\\nCongratulations! It lets you debug, test, evaluate, and monitor chains and intelligent agents built on any LLM framework and seamlessly integrates with LangChain, the go-to open source framework for building with LLMs.\\n Quick Start\\nIf following along with code is more your thing, we've set up a Jupyter notebook at this link to help you get started with LangSmith.\\n LangChain JS Docs for the TypeScript LangChain library\\nDiscord: Join us on our Discord to discuss all things LangChain!\\n Next Steps\\nRead the LangSmith Overview to learn more about what LangSmith has to offer.\\n\",\"score\":0.90136,\"raw_content\":null}]",
+        "name": "tavily_search_results_json",
+        "additional_kwargs": {}
+      }
+    }
+  ]
+}
+[chain/end] [1:chain:AgentExecutor > 9:chain:RunnableAgent > 10:chain:RunnableMap] [4ms] Exiting Chain run with output: {
+  "agent_scratchpad": [
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "",
+        "additional_kwargs": {
+          "function_call": {
+            "name": "tavily_search_results_json",
+            "arguments": "{\"input\":\"LangSmith\"}"
+          }
+        }
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "FunctionMessage"
+      ],
+      "kwargs": {
+        "content": "[{\"title\":\"LangSmith\",\"url\":\"https://www.langchain.com/langsmith\",\"content\":\"BETA Sign Up\\nContact Sales\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter 🦜🔗 LangChain\\nLangSmith\\nLangServe\\nAgents\\nRetrieval\\nEvaluation\\nBlog\\nDocs\\n🦜🔗 LangChain\\nBuild and deploy LLM apps with confidence\\nAn all-in-one developer platform for every step of the application lifecycle.\\n Prompt playground\\nCross-team collaboration\\nCatalog of ranging models & tasks\\nProven prompting strategies\\nExplore LangChain Hub\\nTurn the magic of LLM applications into enterprise-ready products\\nNative collaboration\\nBring your team together in LangSmith to craft prompts, debug, and capture feedback.\\n Application-level usage stats\\nFeedback collection\\nFilter traces\\nCost measurement\\nPerformance comparison\\nGo To Docs\\nManage Prompts\\nPrompts power your team's chains and agents, and LangSmith allows you to refine, test, and version them in one place. Dataset curation\\nEvaluate chain performance\\nAI-assisted evaluation\\nEasy benchmarking\\nGo To Docs\\nMonitor\\nGiven the stochastic nature of LLMs, it can be hard to answer the simple question: “what’s happening with my application?”\",\"score\":0.9673,\"raw_content\":null},{\"title\":\"LangSmith Walkthrough | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/walkthrough\",\"content\":\"This will:\\nThe results will be visible in the LangSmith app.\\nReview the test results\\nYou can review the test results tracing UI below by clicking the URL in the output above or navigating to the \\\"Testing & Datasets\\\" page in LangSmith\\n\\\"agent-qa-{unique_id}\\\" dataset.\\n Below, we will create some pre-implemented run evaluators that do the following:\\nFor a longer discussion of how to select an appropriate evaluator for your use case and how to create your own\\ncustom evaluators, please refer to the LangSmith documentation.\\n For more information on datasets, including how to create them from CSVs or other files or how to create them in the platform, please refer to the LangSmith documentation.\\n Create the langsmith client to interact with the API\\nCreate a LangChain component and log runs to the platform. Create a LangSmith dataset\\nBelow, we use the LangSmith client to create a dataset from the input questions from above and a list labels.\",\"score\":0.94139,\"raw_content\":null},{\"title\":\"LangSmith | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/\",\"content\":\"LangSmith. LangSmith helps you trace and evaluate your language model applications and intelligent agents to help you move from prototype to production.. Check out the interactive walkthrough to get started.. For more information, please refer to the LangSmith documentation.. For tutorials and other end-to-end examples demonstrating ways to integrate LangSmith in your workflow, check out the ...\",\"score\":0.91798,\"raw_content\":null},{\"title\":\"LangSmith Overview and User Guide | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/overview\",\"content\":\"We often use this for a couple of reasons:\\nTo assess subjective qualities that automatic evaluators struggle with, like creativity or humor\\nTo sample and validate a subset of runs that were auto-evaluated, ensuring the automatic metrics are still reliable and capturing the right information\\nAll the annotations made using the queue are assigned as \\\"feedback\\\" to the source runs, so you can easily filter and analyze them later.\\n This feature is available at every step of a nested chain, enabling you to add examples for an end-to-end chain, an intermediary chain (such as a LLM Chain), or simply the LLM or Chat Model.\\n The LangSmith client makes it easy to pull down a dataset and then run a chain over them, logging the results to a new project associated with the dataset. LangChain simplifies the initial setup, but there is still work needed to bring the performance of prompts, chains and agents up the level where they are reliable enough to be used in production.\\n You can also quickly edit examples and add them to datasets to expand the surface area of your evaluation sets or to fine-tune a model for improved quality or reduced costs.\\n\",\"score\":0.90454,\"raw_content\":null},{\"title\":\"LangSmith | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/\",\"content\":\"If you already use LangChain, you can connect to LangSmith in a few steps:\\nFor environments where process.env is not defined, initialize by explicitly passing keys:\\nIf you don't want to use LangChain in your LLM application, you can get started with LangSmith in just a few steps:\\nCongratulations! It lets you debug, test, evaluate, and monitor chains and intelligent agents built on any LLM framework and seamlessly integrates with LangChain, the go-to open source framework for building with LLMs.\\n Quick Start\\nIf following along with code is more your thing, we've set up a Jupyter notebook at this link to help you get started with LangSmith.\\n LangChain JS Docs for the TypeScript LangChain library\\nDiscord: Join us on our Discord to discuss all things LangChain!\\n Next Steps\\nRead the LangSmith Overview to learn more about what LangSmith has to offer.\\n\",\"score\":0.90136,\"raw_content\":null}]",
+        "name": "tavily_search_results_json",
+        "additional_kwargs": {}
+      }
+    }
+  ]
+}
+[chain/start] [1:chain:AgentExecutor > 9:chain:RunnableAgent > 12:prompt:ChatPromptTemplate] Entering Chain run with input: {
+  "input": "what is LangSmith?",
+  "steps": [
+    {
+      "action": {
+        "tool": "tavily_search_results_json",
+        "toolInput": {
+          "input": "LangSmith"
+        },
+        "log": "Invoking \"tavily_search_results_json\" with {\"input\":\"LangSmith\"}\n",
+        "messageLog": [
+          {
+            "lc": 1,
+            "type": "constructor",
+            "id": [
+              "langchain_core",
+              "messages",
+              "AIMessage"
+            ],
+            "kwargs": {
+              "content": "",
+              "additional_kwargs": {
+                "function_call": {
+                  "name": "tavily_search_results_json",
+                  "arguments": "{\"input\":\"LangSmith\"}"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "observation": "[{\"title\":\"LangSmith\",\"url\":\"https://www.langchain.com/langsmith\",\"content\":\"BETA Sign Up\\nContact Sales\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter 🦜🔗 LangChain\\nLangSmith\\nLangServe\\nAgents\\nRetrieval\\nEvaluation\\nBlog\\nDocs\\n🦜🔗 LangChain\\nBuild and deploy LLM apps with confidence\\nAn all-in-one developer platform for every step of the application lifecycle.\\n Prompt playground\\nCross-team collaboration\\nCatalog of ranging models & tasks\\nProven prompting strategies\\nExplore LangChain Hub\\nTurn the magic of LLM applications into enterprise-ready products\\nNative collaboration\\nBring your team together in LangSmith to craft prompts, debug, and capture feedback.\\n Application-level usage stats\\nFeedback collection\\nFilter traces\\nCost measurement\\nPerformance comparison\\nGo To Docs\\nManage Prompts\\nPrompts power your team's chains and agents, and LangSmith allows you to refine, test, and version them in one place. Dataset curation\\nEvaluate chain performance\\nAI-assisted evaluation\\nEasy benchmarking\\nGo To Docs\\nMonitor\\nGiven the stochastic nature of LLMs, it can be hard to answer the simple question: “what’s happening with my application?”\",\"score\":0.9673,\"raw_content\":null},{\"title\":\"LangSmith Walkthrough | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/walkthrough\",\"content\":\"This will:\\nThe results will be visible in the LangSmith app.\\nReview the test results\\nYou can review the test results tracing UI below by clicking the URL in the output above or navigating to the \\\"Testing & Datasets\\\" page in LangSmith\\n\\\"agent-qa-{unique_id}\\\" dataset.\\n Below, we will create some pre-implemented run evaluators that do the following:\\nFor a longer discussion of how to select an appropriate evaluator for your use case and how to create your own\\ncustom evaluators, please refer to the LangSmith documentation.\\n For more information on datasets, including how to create them from CSVs or other files or how to create them in the platform, please refer to the LangSmith documentation.\\n Create the langsmith client to interact with the API\\nCreate a LangChain component and log runs to the platform. Create a LangSmith dataset\\nBelow, we use the LangSmith client to create a dataset from the input questions from above and a list labels.\",\"score\":0.94139,\"raw_content\":null},{\"title\":\"LangSmith | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/\",\"content\":\"LangSmith. LangSmith helps you trace and evaluate your language model applications and intelligent agents to help you move from prototype to production.. Check out the interactive walkthrough to get started.. For more information, please refer to the LangSmith documentation.. For tutorials and other end-to-end examples demonstrating ways to integrate LangSmith in your workflow, check out the ...\",\"score\":0.91798,\"raw_content\":null},{\"title\":\"LangSmith Overview and User Guide | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/overview\",\"content\":\"We often use this for a couple of reasons:\\nTo assess subjective qualities that automatic evaluators struggle with, like creativity or humor\\nTo sample and validate a subset of runs that were auto-evaluated, ensuring the automatic metrics are still reliable and capturing the right information\\nAll the annotations made using the queue are assigned as \\\"feedback\\\" to the source runs, so you can easily filter and analyze them later.\\n This feature is available at every step of a nested chain, enabling you to add examples for an end-to-end chain, an intermediary chain (such as a LLM Chain), or simply the LLM or Chat Model.\\n The LangSmith client makes it easy to pull down a dataset and then run a chain over them, logging the results to a new project associated with the dataset. LangChain simplifies the initial setup, but there is still work needed to bring the performance of prompts, chains and agents up the level where they are reliable enough to be used in production.\\n You can also quickly edit examples and add them to datasets to expand the surface area of your evaluation sets or to fine-tune a model for improved quality or reduced costs.\\n\",\"score\":0.90454,\"raw_content\":null},{\"title\":\"LangSmith | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/\",\"content\":\"If you already use LangChain, you can connect to LangSmith in a few steps:\\nFor environments where process.env is not defined, initialize by explicitly passing keys:\\nIf you don't want to use LangChain in your LLM application, you can get started with LangSmith in just a few steps:\\nCongratulations! It lets you debug, test, evaluate, and monitor chains and intelligent agents built on any LLM framework and seamlessly integrates with LangChain, the go-to open source framework for building with LLMs.\\n Quick Start\\nIf following along with code is more your thing, we've set up a Jupyter notebook at this link to help you get started with LangSmith.\\n LangChain JS Docs for the TypeScript LangChain library\\nDiscord: Join us on our Discord to discuss all things LangChain!\\n Next Steps\\nRead the LangSmith Overview to learn more about what LangSmith has to offer.\\n\",\"score\":0.90136,\"raw_content\":null}]"
+    }
+  ],
+  "agent_scratchpad": [
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "",
+        "additional_kwargs": {
+          "function_call": {
+            "name": "tavily_search_results_json",
+            "arguments": "{\"input\":\"LangSmith\"}"
+          }
+        }
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "FunctionMessage"
+      ],
+      "kwargs": {
+        "content": "[{\"title\":\"LangSmith\",\"url\":\"https://www.langchain.com/langsmith\",\"content\":\"BETA Sign Up\\nContact Sales\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter 🦜🔗 LangChain\\nLangSmith\\nLangServe\\nAgents\\nRetrieval\\nEvaluation\\nBlog\\nDocs\\n🦜🔗 LangChain\\nBuild and deploy LLM apps with confidence\\nAn all-in-one developer platform for every step of the application lifecycle.\\n Prompt playground\\nCross-team collaboration\\nCatalog of ranging models & tasks\\nProven prompting strategies\\nExplore LangChain Hub\\nTurn the magic of LLM applications into enterprise-ready products\\nNative collaboration\\nBring your team together in LangSmith to craft prompts, debug, and capture feedback.\\n Application-level usage stats\\nFeedback collection\\nFilter traces\\nCost measurement\\nPerformance comparison\\nGo To Docs\\nManage Prompts\\nPrompts power your team's chains and agents, and LangSmith allows you to refine, test, and version them in one place. Dataset curation\\nEvaluate chain performance\\nAI-assisted evaluation\\nEasy benchmarking\\nGo To Docs\\nMonitor\\nGiven the stochastic nature of LLMs, it can be hard to answer the simple question: “what’s happening with my application?”\",\"score\":0.9673,\"raw_content\":null},{\"title\":\"LangSmith Walkthrough | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/walkthrough\",\"content\":\"This will:\\nThe results will be visible in the LangSmith app.\\nReview the test results\\nYou can review the test results tracing UI below by clicking the URL in the output above or navigating to the \\\"Testing & Datasets\\\" page in LangSmith\\n\\\"agent-qa-{unique_id}\\\" dataset.\\n Below, we will create some pre-implemented run evaluators that do the following:\\nFor a longer discussion of how to select an appropriate evaluator for your use case and how to create your own\\ncustom evaluators, please refer to the LangSmith documentation.\\n For more information on datasets, including how to create them from CSVs or other files or how to create them in the platform, please refer to the LangSmith documentation.\\n Create the langsmith client to interact with the API\\nCreate a LangChain component and log runs to the platform. Create a LangSmith dataset\\nBelow, we use the LangSmith client to create a dataset from the input questions from above and a list labels.\",\"score\":0.94139,\"raw_content\":null},{\"title\":\"LangSmith | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/\",\"content\":\"LangSmith. LangSmith helps you trace and evaluate your language model applications and intelligent agents to help you move from prototype to production.. Check out the interactive walkthrough to get started.. For more information, please refer to the LangSmith documentation.. For tutorials and other end-to-end examples demonstrating ways to integrate LangSmith in your workflow, check out the ...\",\"score\":0.91798,\"raw_content\":null},{\"title\":\"LangSmith Overview and User Guide | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/overview\",\"content\":\"We often use this for a couple of reasons:\\nTo assess subjective qualities that automatic evaluators struggle with, like creativity or humor\\nTo sample and validate a subset of runs that were auto-evaluated, ensuring the automatic metrics are still reliable and capturing the right information\\nAll the annotations made using the queue are assigned as \\\"feedback\\\" to the source runs, so you can easily filter and analyze them later.\\n This feature is available at every step of a nested chain, enabling you to add examples for an end-to-end chain, an intermediary chain (such as a LLM Chain), or simply the LLM or Chat Model.\\n The LangSmith client makes it easy to pull down a dataset and then run a chain over them, logging the results to a new project associated with the dataset. LangChain simplifies the initial setup, but there is still work needed to bring the performance of prompts, chains and agents up the level where they are reliable enough to be used in production.\\n You can also quickly edit examples and add them to datasets to expand the surface area of your evaluation sets or to fine-tune a model for improved quality or reduced costs.\\n\",\"score\":0.90454,\"raw_content\":null},{\"title\":\"LangSmith | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/\",\"content\":\"If you already use LangChain, you can connect to LangSmith in a few steps:\\nFor environments where process.env is not defined, initialize by explicitly passing keys:\\nIf you don't want to use LangChain in your LLM application, you can get started with LangSmith in just a few steps:\\nCongratulations! It lets you debug, test, evaluate, and monitor chains and intelligent agents built on any LLM framework and seamlessly integrates with LangChain, the go-to open source framework for building with LLMs.\\n Quick Start\\nIf following along with code is more your thing, we've set up a Jupyter notebook at this link to help you get started with LangSmith.\\n LangChain JS Docs for the TypeScript LangChain library\\nDiscord: Join us on our Discord to discuss all things LangChain!\\n Next Steps\\nRead the LangSmith Overview to learn more about what LangSmith has to offer.\\n\",\"score\":0.90136,\"raw_content\":null}]",
+        "name": "tavily_search_results_json",
+        "additional_kwargs": {}
+      }
+    }
+  ]
+}
+[chain/end] [1:chain:AgentExecutor > 9:chain:RunnableAgent > 12:prompt:ChatPromptTemplate] [1ms] Exiting Chain run with output: {
+  "lc": 1,
+  "type": "constructor",
+  "id": [
+    "langchain_core",
+    "prompt_values",
+    "ChatPromptValue"
+  ],
+  "kwargs": {
+    "messages": [
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "SystemMessage"
+        ],
+        "kwargs": {
+          "content": "You are a helpful assistant",
+          "additional_kwargs": {}
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "HumanMessage"
+        ],
+        "kwargs": {
+          "content": "what is LangSmith?",
+          "additional_kwargs": {}
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "AIMessage"
+        ],
+        "kwargs": {
+          "content": "",
+          "additional_kwargs": {
+            "function_call": {
+              "name": "tavily_search_results_json",
+              "arguments": "{\"input\":\"LangSmith\"}"
+            }
+          }
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "FunctionMessage"
+        ],
+        "kwargs": {
+          "content": "[{\"title\":\"LangSmith\",\"url\":\"https://www.langchain.com/langsmith\",\"content\":\"BETA Sign Up\\nContact Sales\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter 🦜🔗 LangChain\\nLangSmith\\nLangServe\\nAgents\\nRetrieval\\nEvaluation\\nBlog\\nDocs\\n🦜🔗 LangChain\\nBuild and deploy LLM apps with confidence\\nAn all-in-one developer platform for every step of the application lifecycle.\\n Prompt playground\\nCross-team collaboration\\nCatalog of ranging models & tasks\\nProven prompting strategies\\nExplore LangChain Hub\\nTurn the magic of LLM applications into enterprise-ready products\\nNative collaboration\\nBring your team together in LangSmith to craft prompts, debug, and capture feedback.\\n Application-level usage stats\\nFeedback collection\\nFilter traces\\nCost measurement\\nPerformance comparison\\nGo To Docs\\nManage Prompts\\nPrompts power your team's chains and agents, and LangSmith allows you to refine, test, and version them in one place. Dataset curation\\nEvaluate chain performance\\nAI-assisted evaluation\\nEasy benchmarking\\nGo To Docs\\nMonitor\\nGiven the stochastic nature of LLMs, it can be hard to answer the simple question: “what’s happening with my application?”\",\"score\":0.9673,\"raw_content\":null},{\"title\":\"LangSmith Walkthrough | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/walkthrough\",\"content\":\"This will:\\nThe results will be visible in the LangSmith app.\\nReview the test results\\nYou can review the test results tracing UI below by clicking the URL in the output above or navigating to the \\\"Testing & Datasets\\\" page in LangSmith\\n\\\"agent-qa-{unique_id}\\\" dataset.\\n Below, we will create some pre-implemented run evaluators that do the following:\\nFor a longer discussion of how to select an appropriate evaluator for your use case and how to create your own\\ncustom evaluators, please refer to the LangSmith documentation.\\n For more information on datasets, including how to create them from CSVs or other files or how to create them in the platform, please refer to the LangSmith documentation.\\n Create the langsmith client to interact with the API\\nCreate a LangChain component and log runs to the platform. Create a LangSmith dataset\\nBelow, we use the LangSmith client to create a dataset from the input questions from above and a list labels.\",\"score\":0.94139,\"raw_content\":null},{\"title\":\"LangSmith | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/\",\"content\":\"LangSmith. LangSmith helps you trace and evaluate your language model applications and intelligent agents to help you move from prototype to production.. Check out the interactive walkthrough to get started.. For more information, please refer to the LangSmith documentation.. For tutorials and other end-to-end examples demonstrating ways to integrate LangSmith in your workflow, check out the ...\",\"score\":0.91798,\"raw_content\":null},{\"title\":\"LangSmith Overview and User Guide | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/overview\",\"content\":\"We often use this for a couple of reasons:\\nTo assess subjective qualities that automatic evaluators struggle with, like creativity or humor\\nTo sample and validate a subset of runs that were auto-evaluated, ensuring the automatic metrics are still reliable and capturing the right information\\nAll the annotations made using the queue are assigned as \\\"feedback\\\" to the source runs, so you can easily filter and analyze them later.\\n This feature is available at every step of a nested chain, enabling you to add examples for an end-to-end chain, an intermediary chain (such as a LLM Chain), or simply the LLM or Chat Model.\\n The LangSmith client makes it easy to pull down a dataset and then run a chain over them, logging the results to a new project associated with the dataset. LangChain simplifies the initial setup, but there is still work needed to bring the performance of prompts, chains and agents up the level where they are reliable enough to be used in production.\\n You can also quickly edit examples and add them to datasets to expand the surface area of your evaluation sets or to fine-tune a model for improved quality or reduced costs.\\n\",\"score\":0.90454,\"raw_content\":null},{\"title\":\"LangSmith | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/\",\"content\":\"If you already use LangChain, you can connect to LangSmith in a few steps:\\nFor environments where process.env is not defined, initialize by explicitly passing keys:\\nIf you don't want to use LangChain in your LLM application, you can get started with LangSmith in just a few steps:\\nCongratulations! It lets you debug, test, evaluate, and monitor chains and intelligent agents built on any LLM framework and seamlessly integrates with LangChain, the go-to open source framework for building with LLMs.\\n Quick Start\\nIf following along with code is more your thing, we've set up a Jupyter notebook at this link to help you get started with LangSmith.\\n LangChain JS Docs for the TypeScript LangChain library\\nDiscord: Join us on our Discord to discuss all things LangChain!\\n Next Steps\\nRead the LangSmith Overview to learn more about what LangSmith has to offer.\\n\",\"score\":0.90136,\"raw_content\":null}]",
+          "name": "tavily_search_results_json",
+          "additional_kwargs": {}
+        }
+      }
+    ]
+  }
+}
+[llm/start] [1:chain:AgentExecutor > 9:chain:RunnableAgent > 13:llm:ChatOpenAI] Entering LLM run with input: {
+  "messages": [
+    [
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "SystemMessage"
+        ],
+        "kwargs": {
+          "content": "You are a helpful assistant",
+          "additional_kwargs": {}
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "HumanMessage"
+        ],
+        "kwargs": {
+          "content": "what is LangSmith?",
+          "additional_kwargs": {}
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "AIMessage"
+        ],
+        "kwargs": {
+          "content": "",
+          "additional_kwargs": {
+            "function_call": {
+              "name": "tavily_search_results_json",
+              "arguments": "{\"input\":\"LangSmith\"}"
+            }
+          }
+        }
+      },
+      {
+        "lc": 1,
+        "type": "constructor",
+        "id": [
+          "langchain_core",
+          "messages",
+          "FunctionMessage"
+        ],
+        "kwargs": {
+          "content": "[{\"title\":\"LangSmith\",\"url\":\"https://www.langchain.com/langsmith\",\"content\":\"BETA Sign Up\\nContact Sales\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter\\nProducts and use-cases\\nLangChain\\nLangSmith\\nRetrieval\\nAgents\\nInspiration\\nCode\\nGitHub\\nLangChain Hub\\nPython Docs\\nJS/TS Docs\\nSocial\\nTwitter\\nDiscord\\nBlog\\nLinkedIn\\nYouTube\\nTerms of Service\\nSign up for our newsletter 🦜🔗 LangChain\\nLangSmith\\nLangServe\\nAgents\\nRetrieval\\nEvaluation\\nBlog\\nDocs\\n🦜🔗 LangChain\\nBuild and deploy LLM apps with confidence\\nAn all-in-one developer platform for every step of the application lifecycle.\\n Prompt playground\\nCross-team collaboration\\nCatalog of ranging models & tasks\\nProven prompting strategies\\nExplore LangChain Hub\\nTurn the magic of LLM applications into enterprise-ready products\\nNative collaboration\\nBring your team together in LangSmith to craft prompts, debug, and capture feedback.\\n Application-level usage stats\\nFeedback collection\\nFilter traces\\nCost measurement\\nPerformance comparison\\nGo To Docs\\nManage Prompts\\nPrompts power your team's chains and agents, and LangSmith allows you to refine, test, and version them in one place. Dataset curation\\nEvaluate chain performance\\nAI-assisted evaluation\\nEasy benchmarking\\nGo To Docs\\nMonitor\\nGiven the stochastic nature of LLMs, it can be hard to answer the simple question: “what’s happening with my application?”\",\"score\":0.9673,\"raw_content\":null},{\"title\":\"LangSmith Walkthrough | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/walkthrough\",\"content\":\"This will:\\nThe results will be visible in the LangSmith app.\\nReview the test results\\nYou can review the test results tracing UI below by clicking the URL in the output above or navigating to the \\\"Testing & Datasets\\\" page in LangSmith\\n\\\"agent-qa-{unique_id}\\\" dataset.\\n Below, we will create some pre-implemented run evaluators that do the following:\\nFor a longer discussion of how to select an appropriate evaluator for your use case and how to create your own\\ncustom evaluators, please refer to the LangSmith documentation.\\n For more information on datasets, including how to create them from CSVs or other files or how to create them in the platform, please refer to the LangSmith documentation.\\n Create the langsmith client to interact with the API\\nCreate a LangChain component and log runs to the platform. Create a LangSmith dataset\\nBelow, we use the LangSmith client to create a dataset from the input questions from above and a list labels.\",\"score\":0.94139,\"raw_content\":null},{\"title\":\"LangSmith | ️ Langchain\",\"url\":\"https://python.langchain.com/docs/langsmith/\",\"content\":\"LangSmith. LangSmith helps you trace and evaluate your language model applications and intelligent agents to help you move from prototype to production.. Check out the interactive walkthrough to get started.. For more information, please refer to the LangSmith documentation.. For tutorials and other end-to-end examples demonstrating ways to integrate LangSmith in your workflow, check out the ...\",\"score\":0.91798,\"raw_content\":null},{\"title\":\"LangSmith Overview and User Guide | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/overview\",\"content\":\"We often use this for a couple of reasons:\\nTo assess subjective qualities that automatic evaluators struggle with, like creativity or humor\\nTo sample and validate a subset of runs that were auto-evaluated, ensuring the automatic metrics are still reliable and capturing the right information\\nAll the annotations made using the queue are assigned as \\\"feedback\\\" to the source runs, so you can easily filter and analyze them later.\\n This feature is available at every step of a nested chain, enabling you to add examples for an end-to-end chain, an intermediary chain (such as a LLM Chain), or simply the LLM or Chat Model.\\n The LangSmith client makes it easy to pull down a dataset and then run a chain over them, logging the results to a new project associated with the dataset. LangChain simplifies the initial setup, but there is still work needed to bring the performance of prompts, chains and agents up the level where they are reliable enough to be used in production.\\n You can also quickly edit examples and add them to datasets to expand the surface area of your evaluation sets or to fine-tune a model for improved quality or reduced costs.\\n\",\"score\":0.90454,\"raw_content\":null},{\"title\":\"LangSmith | ️ ️ LangSmith\",\"url\":\"https://docs.smith.langchain.com/\",\"content\":\"If you already use LangChain, you can connect to LangSmith in a few steps:\\nFor environments where process.env is not defined, initialize by explicitly passing keys:\\nIf you don't want to use LangChain in your LLM application, you can get started with LangSmith in just a few steps:\\nCongratulations! It lets you debug, test, evaluate, and monitor chains and intelligent agents built on any LLM framework and seamlessly integrates with LangChain, the go-to open source framework for building with LLMs.\\n Quick Start\\nIf following along with code is more your thing, we've set up a Jupyter notebook at this link to help you get started with LangSmith.\\n LangChain JS Docs for the TypeScript LangChain library\\nDiscord: Join us on our Discord to discuss all things LangChain!\\n Next Steps\\nRead the LangSmith Overview to learn more about what LangSmith has to offer.\\n\",\"score\":0.90136,\"raw_content\":null}]",
+          "name": "tavily_search_results_json",
+          "additional_kwargs": {}
+        }
+      }
+    ]
+  ]
+}
+[llm/end] [1:chain:AgentExecutor > 9:chain:RunnableAgent > 13:llm:ChatOpenAI] [3.31s] Exiting LLM run with output: {
+  "generations": [
+    [
+      {
+        "text": "LangSmith is a platform that helps trace and evaluate language model applications and intelligent agents to move from prototype to production. It provides features for managing prompts, evaluating chain performance, monitoring applications, and more. LangSmith is part of the LangChain ecosystem, which is an open source framework for building with language model models (LLMs). You can find more information about LangSmith on their official website: [LangSmith](https://www.langchain.com/langsmith)",
+        "message": {
+          "lc": 1,
+          "type": "constructor",
+          "id": [
+            "langchain_core",
+            "messages",
+            "AIMessage"
+          ],
+          "kwargs": {
+            "content": "LangSmith is a platform that helps trace and evaluate language model applications and intelligent agents to move from prototype to production. It provides features for managing prompts, evaluating chain performance, monitoring applications, and more. LangSmith is part of the LangChain ecosystem, which is an open source framework for building with language model models (LLMs). You can find more information about LangSmith on their official website: [LangSmith](https://www.langchain.com/langsmith)",
+            "additional_kwargs": {}
+          }
+        },
+        "generationInfo": {
+          "finish_reason": "stop"
+        }
+      }
+    ]
+  ],
+  "llmOutput": {
+    "tokenUsage": {
+      "completionTokens": 93,
+      "promptTokens": 1421,
+      "totalTokens": 1514
+    }
+  }
+}
+[chain/start] [1:chain:AgentExecutor > 9:chain:RunnableAgent > 14:parser:OpenAIFunctionsAgentOutputParser] Entering Chain run with input: {
+  "lc": 1,
+  "type": "constructor",
+  "id": [
+    "langchain_core",
+    "messages",
+    "AIMessage"
+  ],
+  "kwargs": {
+    "content": "LangSmith is a platform that helps trace and evaluate language model applications and intelligent agents to move from prototype to production. It provides features for managing prompts, evaluating chain performance, monitoring applications, and more. LangSmith is part of the LangChain ecosystem, which is an open source framework for building with language model models (LLMs). You can find more information about LangSmith on their official website: [LangSmith](https://www.langchain.com/langsmith)",
+    "additional_kwargs": {}
+  }
+}
+[chain/end] [1:chain:AgentExecutor > 9:chain:RunnableAgent > 14:parser:OpenAIFunctionsAgentOutputParser] [0ms] Exiting Chain run with output: {
+  "returnValues": {
+    "output": "LangSmith is a platform that helps trace and evaluate language model applications and intelligent agents to move from prototype to production. It provides features for managing prompts, evaluating chain performance, monitoring applications, and more. LangSmith is part of the LangChain ecosystem, which is an open source framework for building with language model models (LLMs). You can find more information about LangSmith on their official website: [LangSmith](https://www.langchain.com/langsmith)"
+  },
+  "log": "LangSmith is a platform that helps trace and evaluate language model applications and intelligent agents to move from prototype to production. It provides features for managing prompts, evaluating chain performance, monitoring applications, and more. LangSmith is part of the LangChain ecosystem, which is an open source framework for building with language model models (LLMs). You can find more information about LangSmith on their official website: [LangSmith](https://www.langchain.com/langsmith)"
+}
+[chain/end] [1:chain:AgentExecutor > 9:chain:RunnableAgent] [3.33s] Exiting Chain run with output: {
+  "returnValues": {
+    "output": "LangSmith is a platform that helps trace and evaluate language model applications and intelligent agents to move from prototype to production. It provides features for managing prompts, evaluating chain performance, monitoring applications, and more. LangSmith is part of the LangChain ecosystem, which is an open source framework for building with language model models (LLMs). You can find more information about LangSmith on their official website: [LangSmith](https://www.langchain.com/langsmith)"
+  },
+  "log": "LangSmith is a platform that helps trace and evaluate language model applications and intelligent agents to move from prototype to production. It provides features for managing prompts, evaluating chain performance, monitoring applications, and more. LangSmith is part of the LangChain ecosystem, which is an open source framework for building with language model models (LLMs). You can find more information about LangSmith on their official website: [LangSmith](https://www.langchain.com/langsmith)"
+}
+[chain/end] [1:chain:AgentExecutor] [5.77s] Exiting Chain run with output: {
+  "input": "what is LangSmith?",
+  "output": "LangSmith is a platform that helps trace and evaluate language model applications and intelligent agents to move from prototype to production. It provides features for managing prompts, evaluating chain performance, monitoring applications, and more. LangSmith is part of the LangChain ecosystem, which is an open source framework for building with language model models (LLMs). You can find more information about LangSmith on their official website: [LangSmith](https://www.langchain.com/langsmith)"
+}
+2024-01-14T14:20:39.765Z [http] GET /api/langchain/search?model=openai 200 513 - 6247.115 ms

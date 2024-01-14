@@ -1,11 +1,11 @@
 import { ChatPromptTemplate } from '@langchain/core/prompts';
-import { ChatOpenAI } from '@langchain/openai';
 import { createStuffDocumentsChain } from 'langchain/chains/combine_documents';
 import { createRetrievalChain } from 'langchain/chains/retrieval';
+import { BaseChatModel } from '@langchain/core/language_models/chat_models';
 
 import memoryVectorStore from '../vectorstore/memoryVectorStore';
 
-export const retrievalChain = async (chatModel: ChatOpenAI, question: string): Promise<string> => {
+export const retrievalChain = async (chatModel: BaseChatModel, question: string): Promise<string> => {
   const vectorstore = await memoryVectorStore.getVectorStore();
   const retriever = vectorstore.asRetriever();
 

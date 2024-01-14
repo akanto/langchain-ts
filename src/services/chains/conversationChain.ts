@@ -1,6 +1,6 @@
 import { AIMessage, HumanMessage } from '@langchain/core/messages';
 import { ChatPromptTemplate, MessagesPlaceholder } from '@langchain/core/prompts';
-import { ChatOpenAI } from '@langchain/openai';
+import { BaseChatModel } from '@langchain/core/language_models/chat_models';
 import { createStuffDocumentsChain } from 'langchain/chains/combine_documents';
 import { createHistoryAwareRetriever } from 'langchain/chains/history_aware_retriever';
 import { createRetrievalChain } from 'langchain/chains/retrieval';
@@ -8,7 +8,7 @@ import { createRetrievalChain } from 'langchain/chains/retrieval';
 import { logger } from '../../utils/logging';
 import memoryVectorStore from '../vectorstore/memoryVectorStore';
 
-export const conversationChain = async (chatModel: ChatOpenAI): Promise<string> => {
+export const conversationChain = async (chatModel: BaseChatModel): Promise<string> => {
   const vectorstore = await memoryVectorStore.getVectorStore();
   const retriever = vectorstore.asRetriever();
 
