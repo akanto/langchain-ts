@@ -5,7 +5,17 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm' # Daily updates for npm package versions
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "daily"
+      interval: 'daily'
+    labels:
+      - 'version-update'
+  - package-ecosystem: 'npm' # Daily security-updates only for npm verisons on the release branch
+    directory: '/'
+    labels:
+      - 'security-update'
+    target-branch: 'release'
+    groups:
+      security-only:
+        applies-to: security-updates
