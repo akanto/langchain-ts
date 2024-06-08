@@ -16,6 +16,10 @@ updates:
     labels:
       - 'security-update'
     target-branch: 'release'
+    schedule:
+      interval: 'daily'
     groups:
       security-only:
         applies-to: security-updates
+        pattern:
+          - '*'
